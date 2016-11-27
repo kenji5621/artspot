@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Artspot</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= yield(:css) %> <!-- We use this section for our CSS files -->
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= yield(:content) %><!-- For our main contents -->
+<%= yield(:javascript) %><!-- We put our JavaScript tags here -->
+<%= render 'layouts/user_widget' %>
+</div>
+</body>
+</html>

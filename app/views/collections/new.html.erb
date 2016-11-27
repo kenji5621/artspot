@@ -1,0 +1,12 @@
+<!-- upload page containing Batch Upload and Manual Upload -->
+<%=content_for(:content) do %>
+<div class = "container">
+	<div class = "row">
+		<h1>New Collection</h1>
+	</div>
+	<div class = "row">
+		<%= link_to "Batch Upload" ,{ :action => 'b_upload' }%>
+		<%= link_to "Manual Upload" ,{ :action => 'm_upload' }%>
+	</div>
+</div>
+<%end%>

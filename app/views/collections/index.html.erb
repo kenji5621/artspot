@@ -1,0 +1,17 @@
+<%=content_for(:content) do %>
+  <div class="container">
+      <div class="row">
+        <p>This is the form for creation of your product.</p>
+        <label for="name">Search:</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="Keyword Search: ArtistName, Title, Classification, Inventory#">
+        <div class = "panel">
+        	<%= link_to "Add New+" ,{ :action => 'new' }%>
+        	<input type="button" value="MoMA">
+        </div>
+        <div class = "panel">
+        	<input type="button" value="MoMA">
+        	<input type="button" value="Metropolitan Museum of Art">
+        </div>
+      </div>
+  </div>
+<%end%>

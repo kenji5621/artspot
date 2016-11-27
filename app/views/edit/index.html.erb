@@ -1,0 +1,28 @@
+ <HTML>
+  <HEAD>
+  <TITLE>Voter Status Editor</TITLE>
+  </HEAD>
+
+  <BODY>
+  <center>
+  <h2>Voter Status Editor</h2>
+  </center>
+
+  <h3>Active</h3>
+
+  <div id="active_voters">
+    <%= render :partial=>"active_voters" %>
+  </div>
+
+  <h3>Inactive</h3>
+
+  <div id="inactive_voters">
+    <%= render :partial=>"inactive_voters" %>
+  </div>
+
+  <div id='spinner' align=left style="display:none;">
+    <h5>busy</h5>
+  </div>
+
+  </BODY>
+  </HTML>
