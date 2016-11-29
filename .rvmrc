@@ -1,1 +1,1 @@
-rvm use 2.1.8@artspot
+rvm use 2.1@artspot --create
