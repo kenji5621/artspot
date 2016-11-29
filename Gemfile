@@ -46,6 +46,5 @@ gem "twitter-bootstrap-rails"
 gem 'font-awesome-less'
 gem 'font-awesome-sass'
 
-gem 'therubyracer'
 gem 'devise'
 gem 'paperclip', '~>4.2'
