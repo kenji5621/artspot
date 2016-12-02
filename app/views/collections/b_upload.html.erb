@@ -1,68 +1,65 @@
-<%= content_for(:css) do %>
-
-<%= stylesheet_link_tag 'dropzone' %>
-<%= stylesheet_link_tag 'basic' %>
-
-<% end %>
-<h1>Product#new</h1>
-<p>Find me in app/views/product/new.html.erb</p>
-
+<%=content_for(:menu) do %>
+   <% render "layouts/menu/collection"%>
+<%end%>
 <%=content_for(:content) do %>
   <div class="container">
     <div class="row">
     <p>This is the form for creation of your product.</p>
-      <%= form_for :request, :url => request.base_url+'/product/create', html: {id:'myForm'} do %>
+      <%= form_for :request, :url => request.base_url+'/collections/create', html: {id:'myForm'} do %>
       <label for="name">Collection Name:</label>
       <input type="text" name="name" id="name" class="form-control">
       <label for description> Upload Board (Drag & Drop Excel)</label>
-      <input type=hidden name="files_list" id='fileslist'>
+      <input type=hidden name="files_list_xls" id='fileslist_xls'>
       <!-- We use this <div> element to initialize our Dropzone -->
       <div id="exceldropzone" class="dropzone"></div> 
       <!-- This <div> elements shows a suitable message after a successful upload. -->
       <div id="msgBoard"></div>
 
       <label for description> Upload Board (Drag & Drop Image Folder)</label>
-      <input type=hidden name="files_list" id='fileslist'>
+      <input type=hidden name="files_list_pic" id='fileslist_pic'>
+      <input type=hidden name="time" id='time'>
       <!-- We use this <div> element to initialize our Dropzone -->
       <div id="imagedropzone" class="dropzone"></div> 
       <!-- This <div> elements shows a suitable message after a successful upload. -->
       <div id="msgBoard"></div>
-
       <br>
       <input type='submit' value="Create your product">
     </div>
   </div>
   <% end %>
-<% end %>
-<%= content_for(:javascript) do %>
-<!-- include the dropzone library itself. -->
-<%= javascript_include_tag "dropzone" %>
 <script type="text/javascript">
   var AUTH_TOKEN=$('meta[name="csrf-token"]').attr('content');
    Dropzone.autoDiscover = false;
   var excelDropzone = new Dropzone("div#exceldropzone",{
-    url: "<%= request.base_url %>/uploadfiles",
+    url: "<%= request.base_url %>/uploadfiles_xls",
     autoProcessQueue: false,
     uploadMultiple: true,
     addRemoveLinks:true,
-    parallelUploads:10,
-    acceptedFiles: ".xls",
+    parallelUploads:1000,
+    acceptedFiles: ".xls,.csv,.xlsx",
     params:{
       'authenticity_token':  AUTH_TOKEN
     },
     successmultiple: function(data,response){
       $('#msgBoard').append(response.message).addClass("alert alert-success");
       $('#msgBoard').delay(2000).fadeOut();
-      $('#fileslist').val(response.filesList);
-      $('#myForm').off('submit').submit();
+      $('#fileslist_xls').val(response.files_list_xls);
+
+      
+      if($('#time').val() == "1")
+      {
+        $('#myForm').off('submit').submit();
+      }
+      else
+        $('#time').val("1");
     }
   });
   var imageDropzone = new Dropzone("div#imagedropzone",{
-    url: "<%= request.base_url %>/uploadfiles",
+    url: "<%= request.base_url %>/uploadfiles_pic",
     autoProcessQueue: false,
     uploadMultiple: true,
     addRemoveLinks:true,
-    parallelUploads:10,
+    parallelUploads:1000,
     acceptedFiles: "image/*",
     params:{
       'authenticity_token':  AUTH_TOKEN
@@ -70,11 +67,18 @@
     successmultiple: function(data,response){
       $('#msgBoard').append(response.message).addClass("alert alert-success");
       $('#msgBoard').delay(2000).fadeOut();
-      $('#fileslist').val(response.filesList);
-      $('#myForm').off('submit').submit();
+      $('#fileslist_pic').val(response.files_list_pic);
+
+      if($('#time').val() == "1")
+      {
+        $('#myForm').off('submit').submit();
+      }
+      else
+        $('#time').val("1");
     }
   });
   $('#myForm').submit(function(e){
+    
   if(excelDropzone.getQueuedFiles().length > 0){
     e.preventDefault();
     excelDropzone.processQueue();

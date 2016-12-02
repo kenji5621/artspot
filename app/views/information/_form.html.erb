@@ -1,0 +1,109 @@
+<%=content_for(:menu) do %>
+   <% render "layouts/menu/collection"%>
+<%end%>
+<div class="form-bottom">
+  <%= form_for(@information , class: "login-form") do |f| %>
+    <div class="form-group">
+      <%= f.label :maintitle %><br />
+      <%= f.text_field :maintitle, autofocus: true , class: "form-username form-control", 
+      placeholder:  "type your maintile..." , type: "text"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :subtitle %><br />
+      <%= f.text_field :subtitle, autocomplete: "off"  ,class: "form-username form-control", placeholder:  "type your subtitle..."%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :year %><br />
+      <%= f.text_field :year, autofocus: true , class: "form-username form-control", 
+      placeholder:  "type your maintile..." , type: "text"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :medium %><br />
+      <%= f.text_field :medium, autocomplete: "off"  ,class: "form-username form-control", placeholder:  "type your subtitle..."%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :duration %><br />
+      <%= f.text_field :duration, autofocus: true , class: "form-username form-control", 
+      placeholder:  "type your maintile..." , type: "text"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :objectnumber %><br />
+      <%= f.text_field :objectnumber, autocomplete: "off"  ,class: "form-username form-control", placeholder:  "type your subtitle..."%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :production %><br />
+      <%= f.text_field :production, autofocus: true , class: "form-username form-control", 
+      placeholder:  "type your maintile..." , type: "text"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :department %><br />
+      <%= f.text_field :department, autocomplete: "off"  ,class: "form-username form-control", placeholder:  "type your subtitle..."%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :publisher %><br />
+      <%= f.text_field :publisher, autofocus: true , class: "form-username form-control", 
+      placeholder:  "type your maintile..." , type: "text"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :printer %><br />
+      <%= f.text_field :printer, autocomplete: "off"  ,class: "form-username form-control", placeholder:  "type your subtitle..."%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :edition %><br />
+      <%= f.text_field :edition, autofocus: true , class: "form-username form-control", 
+      placeholder:  "type your maintile..." , type: "text"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :copyright %><br />
+      <%= f.text_field :copyright, autocomplete: "off"  ,class: "form-username form-control", placeholder:  "type your subtitle..."%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :portfolio %><br />
+      <%= f.text_field :portfolio, autofocus: true , class: "form-username form-control", 
+      placeholder:  "type your maintile..." , type: "text"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :architectural %><br />
+      <%= f.text_field :architectural, autocomplete: "off"  ,class: "form-username form-control", placeholder:  "type your subtitle..."%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :dimentions %><br />
+      <%= f.text_field :dimentions, autofocus: true , class: "form-username form-control", 
+      placeholder:  "type your maintile..." , type: "text"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :credit %><br />
+      <%= f.text_field :credit, autocomplete: "off"  ,class: "form-username form-control", placeholder:  "type your subtitle..."%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :mtype %><br />
+      <%= f.text_field :mtype, autofocus: true , class: "form-username form-control", 
+      placeholder:  "type your maintile..." , type: "text"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :image %><br />
+      <%= f.text_field :image, autocomplete: "off"  ,class: "form-username form-control", placeholder:  "type your subtitle..."%>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class: "btn"%>
+    </div>
+  <% end %>
+</div>

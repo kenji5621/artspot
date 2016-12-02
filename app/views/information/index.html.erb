@@ -1,0 +1,75 @@
+<%=content_for(:menu) do %>
+   <% render "layouts/menu/collection"%>
+<%end%>
+<%=content_for(:content) do %>
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="row">
+          <%= search_form_for @information_search do |f| %>
+            <div class="col-lg-12">
+              <div class="input-group">
+                <%= f.search_field :maintitle_cont ,:class => "form-control",:placeholder=>"Search for..." %>
+                <!-- <input type="text" class="form-control" placeholder="Search for..."> -->
+                <span class="input-group-btn">
+                  <!-- <button class="btn btn-default" type="button">Go!</button> -->
+                  <%= f.submit :class=>"btn btn-default"%>
+                  <%= link_to 'New Information', new_information_path ,:class=>"btn btn-default" %>    
+                </span>
+              </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+          <% end %>
+        </div>
+        <div class="row">
+            <hr>
+                <%- j = -1
+                @filtered_informations.each do |information| 
+                  j = j + 1%>
+                <div class="col-lg-2 col-sm-4 col-md-3">
+                <% if j % 2 == 0%>
+                  <div class="panel panel-primary">
+                  <%end%>
+                <% if j % 2 == 1%>
+                  <div class="panel panel-danger">
+                  <%end%>
+                    <div class="panel-heading">
+                        <% if information.maintitle == nil %>
+                        <h4 class="title">&nbsp;</h4>
+                        <% else%>
+                        <h4 class="title"> <%= information.maintitle%> </h4>
+                        <% end%>
+                    </div>
+                    <div class="panel-body">
+                        <div id="chartPreferences" class="ct-chart ct-perfect-fourth">
+
+                            <img src = <%= "/uploads/collection/" + information.collection_id.to_s + "/pic/" + 
+                            information.image.to_s%> >
+
+                            <em><%=information.subtitle%></em>
+                            <em><%= information.year%></em>
+                            <em><%= information.medium%></em>
+                            <em><%= information.dimentions%></em>
+                            <em><%= information.edition%></em>
+                        </div>
+                        <div class="footer">
+                            <div class="legend">
+                                <i class="fa fa-circle text-info"></i> 
+                                <%= link_to 'Show', information , class: " " %>
+                                <i class="fa fa-circle text-danger"></i> 
+                                <%= link_to 'Edit', edit_information_path(information), class: "" %>
+                                <i class="fa fa-circle text-warning"></i>
+                                <%= link_to 'Destroy', information, method: :delete, data: { confirm: 'Are you sure?' } , class: ""%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+          <%- end %>
+
+          </div>
+      </div>
+      <div class="apple_pagination">
+      <%= will_paginate @filtered_informations, :container => false %>
+    </div>
+  </div>
+<%end%>

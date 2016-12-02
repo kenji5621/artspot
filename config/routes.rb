@@ -1,17 +1,38 @@
 Rails.application.routes.draw do
+  
+
+  get 'statistics/index' => 'statistics#index'
+
+  get 'media/index' => 'media#index'
+
+  get 'merchandise/index' => 'merchandise#index'
+
+  get 'artbase/index'
+
   get 'edit/index'
 
-  get 'collections/index' => 'collections#index'
-  get 'collections/new' => 'collections#new'
+  get '' => 'collections#index'
 
+  # request in collections
   # case for batch upload
   get 'collections/b_upload' => 'collections#b_upload'
   # csae for manual upload
   get 'collections/m_upload' => 'collections#m_upload'
 
+  post 'collections/create' => 'collections#create'
+
+  get 'information/showbycollectionid/:id' => 'information#showbycollectionid'
+
+  resources :collections
+
+  #upload files 
+  post 'uploadfiles_xls'=>'collections#upload_xls'
+  post 'uploadfiles_pic'=>'collections#upload_pic'
+
   devise_for :users
-  resources :products
+
   root 'menu#index'
+  resources :information
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

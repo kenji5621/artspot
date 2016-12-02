@@ -1,0 +1,102 @@
+<%=content_for(:menu) do %>
+   <% render "layouts/menu/collection"%>
+<%end%>
+<%=content_for(:content) do %>    
+<%= link_to 'Edit', edit_information_path(@information), class: "btn btn-success" %> 
+<%= link_to 'Back', information_index_path, class: "btn btn-success" %>
+  <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+              <div class="col-md-4">
+              
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <h4 class="title"> <%= @information.maintitle%> </h4>
+                    </div>
+                    <div class="panel-body">
+                        <div id="chartPreferences" class="ct-chart ct-perfect-fourth">
+                             <img src = <%= "/uploads/collection/" + @information.collection_id.to_s + "/pic/" + 
+                            @information.image.to_s%> >
+                        </div>
+                        <div class="footer">
+                            <div class="legend">
+                                <i class="fa fa-circle text-info"></i> 
+                                <%= link_to 'Add more images+', @information %>
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="fa fa-clock-o"></i> 
+                                <%= link_to 'MORE BY THIS ARTIST', @information %>
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="fa fa-clock-o"></i> 
+                                <%= link_to 'RELATED ARTWORKS', @information %>
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="fa fa-clock-o"></i> 
+                                <%= link_to 'RELATED BOOKS/CATALOGS', @information %>
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="fa fa-clock-o"></i> 
+                                <%= link_to 'RELATED PRINTS', @information %>
+                            </div>
+                            <hr>
+                            <div class="stats">
+                                <i class="fa fa-clock-o"></i> 
+                                <%= link_to 'RELATED MEDIA', @information %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+	              <table class="table table-sm table-inverse information_detail">
+				  <thead>
+				    <tr>
+				      <th>No</th>
+				      <th>Field Name</th>
+				      <th>Content</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				  	<tr><th scope="row">1</th><td>Main Title:</td><td><%= @information.maintitle%></td></tr>
+	                <tr><th scope="row">2</th><td>Year:</td><td><%= @information.year%></td></tr>
+	                <tr><th scope="row">3</th><td>Medium:</td><td><%= @information.medium%></td></tr>
+	                <tr><th scope="row">4</th><td>Duration:</td><td><%= @information.duration%></td></tr>
+	                <tr><th scope="row">5</th><td>Objectnumber:</td><td><%= @information.objectnumber%></td></tr>
+	                <tr><th scope="row">6</th><td>Production:</td><td><%= @information.production%></td></tr>
+	                <tr><th scope="row">7</th><td>Department:</td><td><%= @information.department%></td></tr>
+	                <tr><th scope="row">8</th><td>Publisher:</td><td><%= @information.publisher%></td></tr>
+	                <tr><th scope="row">9</th><td>Printer:</td><td><%= @information.printer%></td></tr>
+				  </tbody>
+				</table>
+		     </div>
+		     <div class="col-md-4">
+	              <table class="table table-sm table-inverse information_detail">
+				  <thead>
+				    <tr>
+				      <th>No</th>
+				      <th>Field Name</th>
+				      <th>Content</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+	                <tr><th scope="row">10</th><td>Edition:</td><td><%= @information.edition%></td></tr>
+	                <tr><th scope="row">11</th><td>Copyright:</td><td><%= @information.copyright%></td></tr>
+	                <tr><th scope="row">12</th><td>Portfolio:</td><td><%= @information.portfolio%></td></tr>
+	                <tr><th scope="row">13</th><td>Architectural:</td><td><%= @information.architectural%></td></tr>
+	                <tr><th scope="row">14</th><td>Dimentions:</td><td><%= @information.dimentions%></td></tr>
+	                <tr><th scope="row">15</th><td>Credit:</td><td><%= @information.credit%></td></tr>
+	                <tr><th scope="row">16</th><td>Mtype:</td><td><%= @information.mtype%></td></tr>
+	                <tr><th scope="row">17</th><td>Image:</td><td><%= @information.image%></td></tr>
+				  </tbody>
+				</table>
+		     </div>            
+        </div>
+      </div>
+  </div>
+<%end%>
+

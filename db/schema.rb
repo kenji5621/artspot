@@ -11,13 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126164559) do
+ActiveRecord::Schema.define(version: 20161129040458) do
 
   create_table "collections", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "information", force: true do |t|
+    t.integer  "collection_id"
+    t.text     "maintitle"
+    t.text     "subtitle"
+    t.text     "year"
+    t.text     "medium"
+    t.text     "duration"
+    t.text     "objectnumber"
+    t.text     "production"
+    t.text     "department"
+    t.text     "publisher"
+    t.text     "printer"
+    t.text     "edition"
+    t.text     "copyright"
+    t.text     "portfolio"
+    t.text     "architectural"
+    t.text     "dimentions"
+    t.text     "credit"
+    t.text     "mtype"
+    t.text     "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "information", ["collection_id"], name: "index_information_on_collection_id", using: :btree
+
+  create_table "pics", force: true do |t|
+    t.integer  "collection_id"
+    t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pics", ["collection_id"], name: "index_pics_on_collection_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "name"
@@ -46,5 +81,14 @@ ActiveRecord::Schema.define(version: 20161126164559) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "xls", force: true do |t|
+    t.integer  "collection_id"
+    t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "xls", ["collection_id"], name: "index_xls_on_collection_id", using: :btree
 
 end

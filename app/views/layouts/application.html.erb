@@ -8,9 +8,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= yield(:content) %><!-- For our main contents -->
-<%= yield(:javascript) %><!-- We put our JavaScript tags here -->
+<% if user_signed_in? %>	
+<%= render 'layouts/dashboard' %>
+<% else%>
 <%= render 'layouts/user_widget' %>
-</div>
+<% end%>
+<%= yield(:javascript) %><!-- We put our JavaScript tags here -->
 </body>
 </html>

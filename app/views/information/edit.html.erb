@@ -1,0 +1,11 @@
+<%=content_for(:menu) do %>
+   <% render "layouts/menu/collection"%>
+<%end%>
+<%=content_for(:content) do %>
+<h1>Editing information</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @information , class: "btn" %> |
+<%= link_to 'Back', information_index_path , class: "btn" %>
+<%end%>

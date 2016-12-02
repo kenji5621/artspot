@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.2'
+gem 'rails', '4.1.8'
 # Use mysql as the database for Active Record
 gem 'mysql2', '~>0.3.18'
 # Use SCSS for stylesheets
@@ -45,7 +45,14 @@ gem "twitter-bootstrap-rails"
 
 gem 'font-awesome-less'
 gem 'font-awesome-sass'
-
+gem 'axlsx'
+gem 'nokogiri'
 gem 'therubyracer'
 gem 'devise'
 gem 'paperclip', '~>4.2'
+gem 'spreadsheet'
+
+#search gem
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'will_paginate', github: 'jonatack/will_paginate'
+
